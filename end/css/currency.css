@@ -1,0 +1,429 @@
+/*顶部css样式开始*/
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;/*这样里面的所有文字就垂直居中了*/
+    background-color: #409eff;
+    font-size: 12px;/*但是只能管span的，a的字体颜色不能继承*/
+}
+/*居中板块是通用的，只需要写一次*/
+.wrap{
+    width: 1226px;
+    /*高度由内容撑开*/
+    margin: 0 auto;
+}
+.header-left{
+    float: left;
+}
+.header-left li{
+    color: #fff;
+    font-size: 15px;
+    /*line-height: 15px;*/
+}
+.header-right{
+    float: right;
+}
+.header li{
+    position: relative;
+    float: left;
+}
+.header a{
+    color: #eee;
+}
+/*鼠标悬停事件，字体变白*/
+.header a:hover{
+    color:#fff;
+}
+.header span{
+    color: #fff;
+    margin: 0 0.3em;/*给span的两边设置间距：0.3*12px字体大小，等于3.6px*/
+    /*行内元素的margin上下不生效，左右生效*/
+}
+.cart{
+    /*子绝父相*/
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #72aaec;
+    margin-left: 25px; /*不能用padding，因为有背景颜色，也会带过去*/
+    cursor: pointer;/*在整个面板上都是小手*/
+    /*注意：有过渡，其下的事件会有一个渐变的效果，视觉上体验更好*/
+    transition: all .2s;
+}
+/*设置一下购物车图标的样式*/
+.cart i{
+    margin-right: 4px;
+    font-weight: 900;
+    vertical-align: -1px;/*车向下移动一个像素*/
+}
+/*鼠标悬浮事件*/
+.cart:hover{
+    background-color: #fff;
+    /*    color: #ff6700; 这个不管用，因为a自己有颜色，是不会继承这个颜色的，要单独设置*/
+}
+.cart:hover a {
+    color: #409eff;
+}
+/*购物车列表*/
+/*默认是和父元素左对齐的*/
+.cart-list{
+    display: flex;
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    /*flex-direction: column; !*设置为竖直方向布局*!*//*不要用这个！！除非想做一列完了接着一列的那种！！*/
+    align-items:flex-start;/*项目位于容器开头*/
+    width: 316px;
+    height: 0;/*强制设置为0，相当于隐藏了*/
+    /*但是行高为0，文字内容会溢出，加一个overflow*/
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,.15); /*盒子阴影，经典*/
+    background-color: #fff;
+    /*需要绝对定位，子绝父相*/
+    position: absolute;
+    right: 0; /*这样就和父元素右对齐了*/
+    color: #424242;
+    line-height: 100px;/*文字垂直居中*/
+    /*display: none; display不能过渡！！不能用/
+    /*需要一个过渡，并且是从上往下的*/
+    transition: height .3s; /*通过控制高度实现*/
+    z-index: 2000;
+    padding: 0 20px;
+}
+/*子class也需要加.才行*/
+.cart:hover>.cart-list{
+    /*display: block; 不能用！！*/
+    /*鼠标悬停时给出来行高，不悬停时自动消失*/
+    /*min-height: 100px;*/
+    height: auto; /*auto就会自动伸缩了*/
+    overflow: visible; /*设置为溢出可见*/
+}
+.cart-list>p{
+    display: inline-block;
+    float: left;
+    width: 296px;
+    height: 60px;
+    margin-top: 20px;
+    background-color: #fff;
+    z-index: 2000;
+    padding: 10px 5px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+.cart-list>p>img{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*span本来就是块级元素*/
+.cart-list>p>span:nth-child(2){
+    font-size: 16px;
+    line-height: 60px;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    color: #757575;
+    width: 120px;
+    text-align: center;
+}
+.cart-list>p>span:last-child{
+    font-size: 16px;
+    line-height: 60px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    color: #757575;
+}
+#ppp{
+    display: inline-block;
+    float: left;
+    width: 296px;
+    height: 60px;
+    margin-top: 0;
+    background-color: #fff;
+    z-index: 2000;
+    padding: 15px 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+#ppp>span{
+    font-size: 16px;
+    line-height: 60px;
+    position: absolute;
+    top: 2px;
+    left: 30px;
+    color: #409eff;
+}
+#ppp>a{
+    display: block;
+    float: right;
+    width: 120px;
+    height: 35px;
+    background-color: #72aaec;
+    color: #fff;
+    white-space:nowrap;
+}
+#ppp>a:hover{
+    background-color: #409eff;
+}
+#ppp>a>span{
+    position: relative;
+    top:-32px;
+    font-size: 14px;
+}
+
+
+
+/*下载app的二维码*/
+.download{
+    z-index: 900;
+    width: 124px;
+    /*height: 148px;*/
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 5px #ccc;
+    position: absolute;/*子绝父相，让这个div脱离文档流,不然父元素会被撑开*/
+    top: 40px;
+    /*水平居中的写法：left和margin-left，记住！*/
+    left: 50%;
+    margin-left: -62px; /*移动自己宽度的一半*/
+    transition: all .3s; /*过渡，要设置在产生变化的元素的最外层的上面*/
+    /*此时，实际上设置成all和height是一样的，因为会根据hover事件里面的属性变化来过渡*/
+}
+.download img{
+    /*全局的header有text-align为center，就不用写了*/
+    margin: 18px 0 12px; /*上，左右，下*/ /*左右为0，不影响居中*/
+    width: 90px;/*高度可以不用设置，会自动缩放*/
+}
+.download p{
+    color: #333;
+    font-size: 14px;
+    line-height: 1; /*与1em一样，设置了行高之后就会自动垂直居中*/
+}
+/*因为是子代download，所以悬停到其他的li上面，这个也出不来，只有含有download的才可以*/
+.header-right>li:hover>.download{
+    height: 148px;
+}
+/*三角形*/
+.triangle{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px; /*宽是16，要16的一半*/
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    display: none;
+}
+.header-right>li:hover>.triangle{
+    display: block;
+}
+/*css样式结束*/
+
+/*导航css开始*/
+.nav{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    position: relative;
+}
+.logo{
+    /*width: 62px;*/
+    /*height: 56px;*/
+    float: left;
+    margin-top: 10px;/*让div垂直居中*/
+    /*border: 1px solid red;*/
+    text-align: left;/*为了让里面的图片居左*/
+    /*margin-left: 0;*/
+}
+.logo img{
+    width: 200px;
+}
+.logo img:hover{
+    transform: translateX(3px);
+}
+.search{
+    width: 296px;
+    height: 50px;
+    float: left;
+    margin-top: 25px;
+    /*border: 1px solid red;*/
+    position: relative;
+}
+
+/*搜索按钮部分开始(改）*/
+/*可以不用套div，直接给input设置大小即可的*/
+.search input{
+    /*这个也要浮动*/
+    float: left;
+    width: 245px;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    padding: 0 10px;/*上下，左右*/
+    box-sizing: border-box;/*变成怪异盒，这个操作往往是需要的*/
+    /*中间的边框变成两像素了，去掉一个*/
+    border-right: none;
+    /*去掉表单选中之后添加的黑框*/
+    outline: none;
+    /*input也要有过渡：变边框*/
+    transition: all .2s;
+    color: #5f5e5e;
+}
+/*a也可以设置宽高，但是a行内元素，要变成块级元素*/
+.search button{
+    /*不能只设置为block，因为block会占据一整行，需要浮动*/
+    /*display: block;*/
+    /*浮动了就可以不设置为block了，会默认变成block*/
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    /*因为此时图标就相当于是字体，所以用字体的相关方法设置样式*/
+    font-size: 24px;
+    color: #616161;
+    /*行高度要减去边框才可以*/
+    line-height: 48px;
+    /*过渡：变色和变边框*/
+    transition: all .2s;
+    background-color: #fff;
+}
+.search button>i{
+    font-size: 25px;
+}
+.search button:hover{
+    background-color: #409eff;
+    border-color: #409eff;
+    color: #fff;/*图标的颜色*/
+}
+/*悬浮改变边框颜色*/
+/*,是合并选择器，a是input的下一个兄弟，加上+a即可*/
+.search input:hover,.search input:hover+button{
+    border-color: #b0b0b0;
+}
+/*点击改变颜色*/
+/*focus是获取焦点，相当于是点击*/
+.search input:focus,.search input:focus+button{
+    border-color: #409eff;
+}
+/*搜索按钮部分结束*/
+
+.nav-bar{
+    /*不能加上relative，否则list大小的100%会和这个一样*/
+    /*position: relative;*/
+    z-index: 850;
+    width: 700px;
+    height: 100px;
+    float: left;
+    /*border: 1px solid red;*/
+    padding-left: 80px;
+    box-sizing: border-box;/*注意：改成怪异盒模型，这样宽度还是868，不会把右面的div挤出去，但是普通盒模型是868+172*/
+    /*或者把width改小也可以，只要加起来为868px即可*/
+    text-align: center;
+}
+/*避免对后代选择器产生影响，我们用子代选择器*/
+.nav-bar>ul>li{
+    float: left;
+    padding: 38px 70px;
+}
+/*字体颜色必须设置在a的上面才可以生效*/
+.nav-bar>ul>li>a{
+    color: #72aaec;
+}
+.nav-bar>ul>li>a:hover{
+    color: #1989fa;
+}
+/*下拉列表*/
+.nav-bar-list{
+    z-index: 850;
+    /*让list以nav作为父亲，子绝父相*/
+    position: absolute;
+    left: 0;
+    top: 95px;
+    width: 100%;
+    /*height: 229px;*/ /*不能给高度，否则伸缩盒无法自动伸缩*/
+    background-color: #fff;
+    /*上边框是要的*/
+    border-top: 1px solid #e0e0e0;
+    /*有盒子阴影效果*/
+    box-shadow: 0 3px 4px rgba(0,0,0,.18);
+    display: none;/*默认隐藏*/
+}
+/*放在上面的导航时，下面的列表出现*/
+.nav-bar li:hover>.nav-bar-list{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-wrap: wrap;
+}
+.nav-bar-list li{
+    float: left; /*里面的图片横向排列*/
+    width: 204px;
+    padding-top: 35px;
+}
+.img-box{
+    width: 100%;/*100%就是与父元素li同宽*/
+    height: 110px;
+    /*右边有边框*/
+    border-right: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    margin-bottom: 16px;/*距离下面有距离*/
+}
+.img-box>img{
+    width: 120px;
+    height: 110px;
+}
+.name1,.price1{
+    font-size: 12px;
+    line-height: 20px;
+}
+.price1{
+    color: #409eff;
+}
+/*最好一个图片盒子不要右边框*/
+.nav-bar-list li:last-child .img-box{
+    border-right: none;
+}
+
+/*搜索列表*/
+.search-list{
+    width: 246px;
+    height: 241px;
+    border: 1px solid #409eff;
+    border-top: none;
+    box-sizing: border-box;
+    background-color: #fff;
+    /*如果不绝对定位，会有一部分被盖住的*/
+    position: absolute;
+    top: 50px;
+    left: 0;
+    display: none;
+    z-index: 800;
+}
+/*input与input-list之间不是紧挨着的兄弟不能用+，用~是通用的兄弟*/
+/*.search input:focus~.search-list{*/
+/*    display: block;*/
+/*}*/
+/*需要改成p*/
+.search-list>p{
+    width: 244px;
+    height: 30px;
+    padding: 6px 15px;
+    display: block;
+    /*超出了，转化成怪异盒*/
+    box-sizing: border-box;
+    color: #424242;
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+.search-list>p:hover{
+    background-color: rgba(204, 204, 204, 0.24);
+}
+/*需要改成p结束*/
+/*导航css结束*/

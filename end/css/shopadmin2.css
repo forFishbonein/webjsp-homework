@@ -1,0 +1,741 @@
+/*顶部css样式开始*/
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;/*这样里面的所有文字就垂直居中了*/
+    background-color: #409eff;
+    font-size: 12px;/*但是只能管span的，a的字体颜色不能继承*/
+}
+/*居中板块是通用的，只需要写一次*/
+.wrap{
+    width: 1226px;
+    /*高度由内容撑开*/
+    margin: 0 auto;
+}
+.header-left{
+    float: left;
+}
+.header-left li{
+    color: #fff;
+    font-size: 15px;
+    /*line-height: 15px;*/
+}
+.header-right{
+    float: right;
+}
+.header-right>li:last-child{
+    margin-right: 40px;
+}
+.header li{
+    position: relative;
+    float: left;
+}
+.header a{
+    color: #eee;
+}
+/*鼠标悬停事件，字体变白*/
+.header a:hover{
+    color:#fff;
+}
+.header span{
+    color: #fff;
+    margin: 0 0.3em;/*给span的两边设置间距：0.3*12px字体大小，等于3.6px*/
+    /*行内元素的margin上下不生效，左右生效*/
+}
+/*css样式结束*/
+
+/*导航css开始*/
+.nav{
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    position: relative;
+}
+.logo{
+    /*width: 62px;*/
+    /*height: 56px;*/
+    float: left;
+    margin-top: 10px;/*让div垂直居中*/
+    /*border: 1px solid red;*/
+    text-align: left;/*为了让里面的图片居左*/
+    /*margin-left: 0;*/
+}
+.logo img{
+    width: 200px;
+}
+.logo img:hover{
+    transform: translateX(3px);
+}
+.nav-bar{
+    /*不能加上relative，否则list大小的100%会和这个一样*/
+    /*position: relative;*/
+    z-index: 850;
+    width: 1000px;
+    height: 100px;
+    float: left;
+    /*border: 1px solid red;*/
+    /*padding-left: 50px;*/
+    /*margin-left: 90px;*/
+    box-sizing: border-box;/*注意：改成怪异盒模型，这样宽度还是868，不会把右面的div挤出去，但是普通盒模型是868+172*/
+    /*或者把width改小也可以，只要加起来为868px即可*/
+    text-align: center;
+}
+/*避免对后代选择器产生影响，我们用子代选择器*/
+.nav-bar>ul>li{
+    float: left;
+    text-align: center;
+    padding: 0 60px;
+    transition: background-color .5s;
+}
+
+/*字体颜色必须设置在a的上面才可以生效*/
+.nav-bar>ul>li>a{
+    color: #72aaec;
+    font-size: 18px;
+    line-height: 100px;
+}
+.nav-bar>ul>li:nth-child(2)>a{
+    cursor: default;
+}
+.nav-bar>ul>li:nth-child(3)>a{
+    cursor: default;
+}
+.nav-bar>ul>li>a:hover{
+    color: #1989fa;
+}
+.nav-bar>ul>li:first-child:hover{
+    background-color: #f5f5f5;
+    border-bottom: 3px #409eff solid;
+}
+.nav-bar>ul>li:last-child:hover{
+    background-color: #f5f5f5;
+    border-bottom: 3px #409eff solid;
+}
+/*导航css结束*/
+/*主体部分开始*/
+.container{
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 4px 0 12px;
+    /*overflow: hidden;*/
+    display: flex;
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    min-height: 1000px;
+    align-items:flex-start;/*项目位于容器开头*/
+}
+.wraps{
+    width: 1280px;
+    /*高度由内容撑开*/
+    margin: 0 auto;
+    /*padding: 40px 140px;*/
+}
+.c_body1{
+    margin: 40px auto;
+    width: 1200px;
+    display: flex;
+    /*display: none;*/
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    /*min-height: 800px;*//*这里不用指定最小的高度，只有最外层的div需要指定*/
+    align-items:flex-start;/*项目位于容器开头*/
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,.18);
+}
+.list-body{
+    border-bottom: 2px #e0e0e0 solid;
+}
+.list-header{
+    width: 100%;
+    height: 70px;
+    border-bottom: 2px solid #409eff;
+}
+.list-header>ul>li{
+    float: left;
+    padding: 24px;
+    color: #424242;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.list-header>ul>li:first-child{
+    width: 100px;
+    margin-left: 15px;
+}
+.list-header>ul>li:nth-child(2){
+    width: 150px;
+}
+.list-header>ul>li:nth-child(3){
+    width: 140px;
+}
+.list-header>ul>li:nth-child(4){
+    width: 80px;
+}
+.list-header>ul>li:nth-child(5){
+    width: 200px;
+}
+.list-header>ul>li:nth-child(6){
+    width: 200px;
+}
+.list-header>ul>li:nth-child(7){
+    width: 100px;
+}
+.list-header>ul>li:nth-child(8){
+    width: 100px;
+}
+.list-header>ul>li:last-child{
+    width: 100px;
+}
+
+.cart-list-shop{
+    width: 1200px;/*外层框架里面的框架必须要给固定值，不然在放大缩小的时候会元素塌陷，格式混乱*/
+    height: 120px;
+}
+.cart-list-shop ul>form,.cart-list-shop ul{
+    display: flex;
+    align-items: center;
+}
+.cart-list-shop ul>form{
+    justify-content: flex-end;
+}
+.cart-list-shop ul{
+    justify-content: flex-start;
+    height: 120px;
+}
+.cart-list-shop ul li{
+    float: left;
+    /*让元素统一垂直居中最好的方法，这样各种dom元素都可以垂直水平居中*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    color: #424242;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*强制断行的两句话！！*/
+    word-wrap: break-word;
+    word-break:break-all;
+}
+
+.cart-list-shop ul>form>li:first-child{
+    width: 100px;
+    margin-left: 15px;
+    /*line-height: 120px;*/
+}
+.cart-list-shop ul>form>li:nth-child(2){
+    width: 150px;
+    /*line-height: 120px;*/
+}
+.cart-list-shop ul>form>li:nth-child(2){
+    /*padding-left: 35px;*/
+    /*padding-top: 20px;*/
+}
+.cart-list-shop ul>form>li:nth-child(2) img{
+    width: 80px;
+    height: 80px;
+    /*margin-left: 35px;*/
+    /*margin-top: 20px;*/
+}
+.cart-list-shop ul>form>li:nth-child(3){
+    width: 140px;
+}
+.cart-list-shop ul>form>li:nth-child(4){
+    width: 80px;
+}
+.cart-list-shop ul>form>li:nth-child(5),.cart-list-shop ul>form>li:nth-child(6){
+    width: 200px;
+    /*text-align: left;*/
+    /*display: inline-block;*/
+}
+.cart-list-shop ul>form>li:nth-child(5)>span,.cart-list-shop ul>form>li:nth-child(6)>span{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    text-indent: 1em;
+}
+.cart-list-shop ul>form>li:nth-child(7){
+    width: 100px;
+}
+.cart-list-shop ul>form>li:nth-child(8){
+    width: 100px;
+}
+.cart-list-shop ul>form>li:nth-child(8)>input{
+    width: 60px;
+    height: 30px;
+    border: #409eff 2px solid;
+    background-color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cart-list-shop ul>form>li:nth-child(8)>input:hover{
+    background-color: #409eff;
+    color: #fff;
+}
+.cart-list-shop ul li:last-child{
+    width: 100px;
+    /*padding-left: 37.5px;*/
+}
+.cart-list-shop ul li:last-child>form>button{
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 12.5px;
+    transition: all .3s;
+    cursor: pointer;
+    border: #409eff 2px solid;
+}
+.cart-list-shop ul li:last-child>form>button:hover{
+    background-color: #409eff;
+}
+.cart-list-shop ul li:last-child>form>button>i{
+    font-size: 18px;
+}
+
+
+/*尾部*/
+.cart-list-foot{
+    width: 1200px;
+    height: 100px;
+    /*margin-top: 20px;*/
+    background-color: #fff;
+    overflow: hidden;
+}
+.cart-list-foot>ul li{
+    line-height: 100px;
+    color: #757575;
+    font-size: 14px;
+}
+.cart-list-foot>ul>form>li:first-child{
+    float: left;
+    margin-left: 45px;
+}
+.cart-list-foot>ul>form>li:nth-child(2){
+    float: left;
+    margin-left: 20px;
+    color: #b0b0b0;
+    font-size: 14px;
+}
+.cart-list-foot>ul>form>li:nth-child(3){
+    float: left;
+    margin-left: 40px;
+    /*background-color: #e0e0e0;*/
+}
+.cart-list-foot>ul>form>li:nth-child(3)>img{
+    width: 80px;
+    height: 80px;
+}
+img[src=""],img:not([src]){
+    opacity:0;
+}
+.cart-list-foot>ul>form>li:last-child{
+    float: right;
+    margin-right: 115px;
+}
+.cart-list-foot>ul>form>li:last-child>input{
+    width: 100px;
+    height: 30px;
+    background-color: #72aaec;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.cart-list-foot>ul>form>li:last-child>input:hover{
+    background-color: #409eff;
+}
+.inin{
+    width: 100%;
+    height: 20px;
+    border: #409eff solid 2px;
+    border-radius: 5px;
+    text-align: center;
+}
+.inin2{
+    width: 180px;
+    height: 20px;
+    border: #409eff solid 2px;
+    border-radius: 5px;
+    text-align: center;
+}
+#upload{
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    border: 1px solid #409eff;
+    text-decoration: none;
+    color: #616161;
+    background-color: #fff;
+}
+#change{
+    position: absolute;
+    /*overflow: hidden;*/
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.cart-list-foot2{
+    width: 1200px;
+    height: 80px;
+    /*margin-top: 20px;*/
+    background-color: #fff;
+    overflow: hidden;
+    border-top: 2px #e0e0e0 solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.cart-list-foot2>p:first-child{
+    color: #616161;
+    font-size: 18px;
+}
+.cart-list-foot2>p:first-child>span{
+    color: #409eff;
+}
+.cart-list-foot2>p:first-child>button{
+    width: 100px;
+    height: 30px;
+    background-color: #72aaec;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.cart-list-foot2>p:first-child>button:hover{
+    background-color: #409eff;
+}
+.cart-list-foot2>p:nth-child(2){
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.cart-list-foot4{
+    width: 1200px;
+    height: 80px;
+    /*margin-top: 20px;*/
+    background-color: #fff;
+    overflow: hidden;
+    border-bottom: 2px #e0e0e0 solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.cart-list-foot4>p:first-child{
+    color: #616161;
+    font-size: 18px;
+}
+.cart-list-foot4>p:first-child>span{
+    color: #409eff;
+}
+.cart-list-foot4>p:first-child>button{
+    width: 100px;
+    height: 30px;
+    background-color: #72aaec;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.cart-list-foot4>p:first-child>button:hover{
+    background-color: #409eff;
+}
+.cart-list-foot4>p:nth-child(2){
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+
+.wor{
+    color: #757575;
+    font-size: 14px;
+    position: absolute;
+    top: 15px;
+    left: 45px;
+}
+.cart-list-foot3{
+    width: 1200px;/*外层框架里面的框架必须要给固定值，不然在放大缩小的时候会元素塌陷，格式混乱*/
+    height: 120px;
+    border-top: 2px solid #e0e0e0;
+    position: relative;
+}
+.cart-list-foot3 ul>form,.cart-list-foot3 ul{
+    display: flex;
+    align-items: center;
+}
+.cart-list-foot3 ul>form{
+    justify-content: flex-end;
+}
+.cart-list-foot3 ul{
+    justify-content: flex-start;
+    height: 120px;
+}
+.cart-list-foot3 ul li{
+    float: left;
+    /*让元素统一垂直居中最好的方法，这样各种dom元素都可以垂直水平居中*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    color: #424242;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*强制断行的两句话！！*/
+    word-wrap: break-word;
+    word-break:break-all;
+    padding: 0 10px;
+}
+
+.cart-list-foot3 ul>form>li:first-child{
+    width: 100px;
+    margin-left: 15px;
+    /*line-height: 120px;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(2){
+    width: 100px;
+    margin-left: 15px;
+    /*line-height: 120px;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(3){
+    width: 150px;
+    /*line-height: 120px;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(3){
+    /*padding-left: 35px;*/
+    /*padding-top: 20px;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(3) img{
+    width: 80px;
+    height: 80px;
+    /*margin-left: 35px;*/
+    /*margin-top: 20px;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(4){
+    width: 140px;
+}
+.cart-list-foot3 ul>form>li:nth-child(5){
+    width: 80px;
+}
+.cart-list-foot3 ul>form>li:nth-child(6),.cart-list-foot3 ul>form>li:nth-child(7){
+    width: 200px;
+    /*text-align: left;*/
+    /*display: inline-block;*/
+}
+.cart-list-foot3 ul>form>li:nth-child(6)>span,.cart-list-foot3 ul>form>li:nth-child(7)>span{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    text-indent: 1em;
+}
+.cart-list-foot3 ul>form>li:nth-child(8){
+    width: 100px;
+}
+.cart-list-foot3 ul>form>li:nth-child(9){
+    width: 100px;
+}
+.cart-list-foot3 ul>form>li:nth-child(9)>input{
+    width: 60px;
+    height: 30px;
+    border: #409eff 2px solid;
+    background-color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cart-list-foot3 ul>form>li:nth-child(9)>input:hover{
+    background-color: #409eff;
+    color: #fff;
+}
+/*主体部分结束*/
+/*尾部样式开始*/
+.footer{
+    width: 100%;
+    height: 300px;
+}
+.footer .b{
+    margin: 50px auto -15px;
+    border-top: 1px solid #e0e0e0;
+    width: 1226px;
+}
+.footer img{
+    width: 600px;
+    height: 250px;
+    margin-top: 30px;
+}
+.footer .word{
+    margin-top: 10px;
+    text-align: right;
+}
+.footer .word span{
+    margin-right: 20px;
+    color: #999;
+}
+.footer .word span:last-child{
+    margin-right: 0;
+}
+/*尾部样式结束*/
+.words{
+    position: relative;
+    margin: 0;
+    height: 50px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #757575;
+    border-top: 1px solid #e0e0e0;
+}
+.words>span{
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 372px;
+    height: 40px;
+    width: 482px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+/*商品管理系统结束*/
+/*用户管理系统开始*/
+.c_body2{
+    margin: 40px auto;
+    width: 1200px;
+    display: flex;
+    /*display: none;*/
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    /*min-height: 800px;*//*这里不用指定最小的高度，只有最外层的div需要指定*/
+    align-items:flex-start;/*项目位于容器开头*/
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,.18);
+    /*opacity: 0;*/
+}
+.list-body2{
+    border-bottom: 2px #e0e0e0 solid;
+}
+.list-header2{
+    width: 100%;
+    height: 70px;
+    border-bottom: 2px solid #409eff;
+
+}
+.list-header2>ul{
+    display: flex;
+    justify-content: space-around;
+}
+.list-header2>ul>li{
+    float: left;
+    color: #424242;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list-header2>ul>li:hover{
+    background-color: #f5f5f5;
+}
+.list-header2>ul>li:first-child{
+    width: 200px;
+}
+.list-header2>ul>li:nth-child(2){
+    width: 200px;
+}
+.list-header2>ul>li:nth-child(3){
+    width: 200px;
+}
+.list-header2>ul>li:nth-child(4){
+    width: 200px;
+}
+.list-header2>ul>li:nth-child(5){
+    width: 200px;
+}
+.list-header2>ul>li:nth-child(6){
+    width: 200px;
+}
+
+.cart-list-shop2{
+    width: 1200px;/*外层框架里面的框架必须要给固定值，不然在放大缩小的时候会元素塌陷，格式混乱*/
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+}
+/*.cart-list-shop2 ul{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: flex-start;*/
+/*    height: 80px;*/
+/*}*/
+
+.cart-list-shop2 ul li{
+    float: left;
+    /*让元素统一垂直居中最好的方法，这样各种dom元素都可以垂直水平居中*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    color: #424242;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*强制断行的两句话！！*/
+    word-wrap: break-word;
+    word-break:break-all;
+    height: 80px;/*使用flex进行垂直居中分布的前提是，块元素必须要有高度*/
+}
+
+.cart-list-shop2 ul li:first-child{
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(2){
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(3){
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(4){
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(5){
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(5)>form>button{
+    width: 100px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    transition: all .3s;
+    cursor: pointer;
+    border: #409eff 2px solid;
+    font-size: 16px;
+}
+.cart-list-shop2 ul li:nth-child(5)>form>button:hover{
+    background-color: #409eff;
+}
+.cart-list-shop2 ul li:nth-child(6){
+    width: 200px;
+}
+.cart-list-shop2 ul li:nth-child(6)>form>button{
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 12.5px;
+    transition: all .3s;
+    cursor: pointer;
+    border: #409eff 2px solid;
+}
+.cart-list-shop2 ul li:nth-child(6)>form>button:hover{
+    background-color: #409eff;
+}
+.cart-list-shop2 ul li:nth-child(6)>form>button>i{
+    font-size: 18px;
+}
+/*用户管理系统结束*/

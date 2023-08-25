@@ -1,0 +1,435 @@
+/*顶部css样式开始*/
+.header{
+    width: 100%;
+    height: 100px;
+    line-height: 40px;/*这样里面的所有文字就垂直居中了*/
+    background-color: #fff;
+    font-size: 12px;/*但是只能管span的，a的字体颜色不能继承*/
+    border-bottom: 2px solid #409eff;
+    color: #b0b0b0;
+    z-index: 20;
+}
+/*居中板块是通用的，只需要写一次*/
+/*.wrap{*/
+/*    width: 1226px;*/
+/*    !*高度由内容撑开*!*/
+/*    margin: 0 auto;*/
+/*}*/
+.header-left{
+    float: left;
+}
+.header-left li{
+    color: #424242;
+    font-size: 15px;
+    float: left;
+}
+.header-left li:nth-child(2){
+    line-height: 48px;
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 25px;
+}
+.header-left li:first-child{
+    margin-top: 13px;
+    margin-right: 10px;
+}
+.header-left>li:first-child img{
+    width: 200px;
+    /*height: 50px;*/
+}
+.header-right{
+    float: right;
+    margin-top: 30px;
+    margin-right: 70px;
+    position: relative;
+}
+.header-right li{
+    float: left;
+    color: #757575;
+    font-size: 16px;
+    cursor: pointer;
+}
+.header-right li>i{
+    font-size: 12px;
+    margin-left: 10px;
+}
+.header-right li:hover{
+    color: #72aaec;
+}
+.exit{
+    z-index: 900;
+    width: 110px;
+    /*height: 148px;*/
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 5px #ccc;
+    position: absolute;/*子绝父相，让这个div脱离文档流,不然父元素会被撑开*/
+    top: 40px;
+    /*水平居中的写法：left和margin-left，记住！*/
+    left: 50%;
+    margin-left: -62px; /*移动自己宽度的一半*/
+    transition: all .3s; /*过渡，要设置在产生变化的元素的最外层的上面*/
+}
+.exit>a{
+    line-height: 30px;
+    font-size: 12px;
+    color: #333;
+    margin: 10px 0;
+    display: inline-block;
+    height: 30px;
+    width: 110px;
+    transition: all .3s;
+}
+.exit>a:hover{
+    background-color: #e0e0e0;
+    color: #409eff;
+}
+.header-right>li:hover>.exit{
+    height: 50px;
+}
+/*头部结束*/
+/*主体开始*/
+.container{
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 4px 0 12px;
+    /*overflow: hidden;*/
+    display: flex;
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    min-height: 1000px;
+    align-items:flex-start;/*项目位于容器开头*/
+}
+/*订单提交框开始*/
+.order{
+    width: 1226px;
+    height: 200px;
+    background-color: #fff;
+    /*垂直居中*/
+    align-items: center;
+    /*justify-content: center;*/
+    position: relative;
+    display: none;
+}
+.order-left{
+    float: left;
+    width: 84px;
+    height: 84px;
+    margin-left: 50px;
+}
+.order-left>i{
+    font-size: 84px;
+    color: #72aaec;
+}
+.order-right{
+    float: right;
+    width: 995px;
+    height: 122px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.word-left{
+    float: left;
+    width: 548px;
+    height: 67px;
+}
+.word-left>h2{
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #424242;
+}
+.word-left>p{
+    color: #616161;
+}
+.word-right{
+    float: right;
+    width: 200px;
+    height: 67px;
+    margin-left: 500px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #757575;
+}
+.word1 span{
+    font-size: 14px;
+    color: #409eff;
+}
+.word1>em{
+    font-size: 24px;
+    font-style: normal;
+    color: #409eff;
+}
+/*关闭消息的按钮的效果*/
+#xxx{
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 12.5px;
+    transition: all .3s;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+#xxx:hover{
+    background-color: #409eff;
+}
+#xxx>i{
+    font-size: 18px;
+}
+/*订单提交框结束*/
+/*标题语*/
+.words{
+    position: relative;
+    margin: 0;
+    height: 50px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #757575;
+    border-top: 1px solid #e0e0e0;
+}
+.words>span{
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 372px;
+    height: 40px;
+    width: 482px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+/*标题语结束*/
+/*历史订单部分主体开始*/
+.cart-list{
+    background-color: #fff;
+    flex-direction: column; /*设置为竖直方向布局*/
+    display: flex;
+    justify-content: space-around;
+    /*align-items:center;*/
+    flex-wrap: wrap;
+    width: 100%;
+}
+.list-header{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.list-header>ul>li{
+    float: left;
+    padding: 24px;
+    color: #424242;
+    font-size: 14px;
+}
+.list-header>ul>li:nth-child(3){
+    width: 370px;
+    text-align: left;
+}
+.list-header>ul>li:nth-child(4){
+    width: 100px;
+    text-align: left;
+}
+.list-header>ul>li:nth-child(5){
+    width: 120px;
+    text-align: left;
+}
+.list-header>ul>li:nth-child(6){
+    width: 100px;
+    text-align: left;
+}
+
+.cart-list-shop{
+    width: 1226px;/*外层框架里面的框架必须要给固定值，不然在放大缩小的时候会元素塌陷，格式混乱*/
+    height: 117px;
+    /*padding: 15px 26px 15px 0;*/
+    box-sizing: border-box;
+    padding: 0 24px;
+}
+.cart-list-shop>ul>li{
+    height: 117px;
+    float: left;
+    /*让元素统一垂直居中最好的方法，这样各种dom元素都可以垂直水平居中*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+}
+
+.cart-list-shop>ul>li:nth-child(2)>div{
+    padding-left: 20px;
+}
+.cart-list-shop>ul>li:nth-child(2) img{
+    width: 80px;
+    height: 80px;
+}
+.cart-list-shop>ul>li:nth-child(3){
+    width: 420px;
+    text-align: left;
+    padding-left: 50px;
+    position: relative;
+}
+.cart-list-shop>ul>li:nth-child(3)>div{
+    width: 120px;
+    height: 80px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    position: absolute;
+    right: 80px;
+}
+.cart-list-shop>ul>li:nth-child(3)>div>button{
+    width: 100px;
+    height: 40px;
+    background-color: #72aaec;
+    border-radius: 20px;
+    /*margin-left: 120px;*/
+    color: #fff;
+}
+.cart-list-shop>ul>li:nth-child(3)>div>button:hover{
+    background-color: #409eff;
+}
+.cart-list-shop>ul>li:nth-child(4){
+    width: 70px;
+    text-align: center;
+    margin-left: -10px;
+}
+.cart-list-shop>ul>li:nth-child(5){/*数量*/
+    width: 50px;
+    margin-left: 100px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.cart-list-shop>ul>li:nth-child(6){/*总价*/
+    width: 100px;
+    text-align: left;
+    margin-left: 100px;
+    color: #409eff;
+    box-sizing: border-box;
+}
+.cart-list-shop>ul>li:last-child{
+    margin-left: 20px;
+}
+
+
+/*历史订单主体结束*/
+.result{
+    width: 1226px;
+    height: 50px;
+    margin: 10px auto 0;
+    /*border-radius: 20px;*/
+    background-color: #72aaec;
+    color: #fff;
+    line-height: 50px;
+    font-size: 20px;
+    display: none;
+    text-align: center;
+}
+
+/*评价框开始*/
+.evaluate{
+    border: #409eff 2px solid;
+    border-radius: 20px;
+    width: 1000px;
+    height: 250px;
+    margin: 10px auto 0;
+}
+.e_header{
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #b0b0b0;
+}
+.eee{
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.eee>li{
+    float: left;
+    margin-left: 5px;
+    height: 30px;
+    line-height: 30px;
+}
+.eee>li:first-child{
+    margin-top: 2px;
+    color: #424242;
+    margin-left: 20px;
+}
+.eee>li:last-child{
+    margin-top: 2px;
+    color: #424242;
+    margin-left: 20px;
+}
+.eee>li>ul>li{
+    float: left;
+}
+.ininin{
+    width: 100%;
+    height: 198px;
+    background-color: #f5f5f5;
+    border-radius: 0 0 20px 20px;
+    vertical-align: top;
+    color: #757575;
+    font-size: 18px;
+    text-align: left;
+    outline: none; /*取消选中的边框*/
+    resize:none;/*禁止自动更改大小*/
+    text-indent: 2em; /*首行缩进2字符*/
+    border:0;
+    line-height: 30px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+.e_footer{
+    width: 1000px;
+    height: 50px;
+    margin: 5px auto 10px;
+}
+.e_footer>button{
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 830px;
+    background-color: #72aaec;
+    border-radius: 5px;
+    color: #fff;
+}
+.e_footer>button:hover{
+    background-color: #409eff;
+}
+/*评价框结束*/
+/*主体结束*/
+
+/*尾部样式开始*/
+.footer{
+    width: 100%;
+    height: 300px;
+}
+.footer .b{
+    margin: 50px auto -15px;
+    border-top: 1px solid #e0e0e0;
+    width: 1226px;
+}
+.footer img{
+    width: 600px;
+    height: 250px;
+    margin-top: 30px;
+}
+.footer .word{
+    margin-top: 10px;
+    text-align: right;
+}
+.footer .word span{
+    margin-right: 20px;
+    color: #999;
+}
+.footer .word span:last-child{
+    margin-right: 0;
+}
+/*尾部样式结束*/
